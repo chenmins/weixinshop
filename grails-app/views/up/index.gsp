@@ -86,7 +86,7 @@
         $('#li_'+id).remove();
         var tmp
         if(checkEnd(sourceLink,".jpg")||checkEnd(sourceLink,".png")||checkEnd(sourceLink,".gif")||checkEnd(sourceLink,".jpeg")){
-            tmp = "<li id='ok_"+id+"'  class=\"weui-uploader__file\" style=\"background-image:url( "+sourceLink+")\"></li>";
+            tmp = "<li id='ok_"+id+"'  class=\"weui-uploader__file\" style=\"background-image:url( "+sourceLink+"?imageView2/1/w/160/h/160)\"></li>";
         }else{
             tmp = "<li id='ok_"+id+"'  class=\"weui-uploader__file\" style=\"background-image:url( ${assetPath(src: 'pic_160.png')})\"></li>";
         }
