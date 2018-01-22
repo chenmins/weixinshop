@@ -82,9 +82,14 @@
         list.append(tmp);
     }
 
-    function okFile(id) {
+    function okFile(id,sourceLink) {
         $('#li_'+id).remove();
-        var tmp = "<li id='ok_"+id+"'  class=\"weui-uploader__file\" style=\"background-image:url( ${assetPath(src: 'pic_160.png')})\"></li>";
+        var tmp
+        if(checkEnd(sourceLink,".jpg")||checkEnd(sourceLink,".png")||checkEnd(sourceLink,".gif")||checkEnd(sourceLink,".jpeg")){
+            tmp = "<li id='ok_"+id+"'  class=\"weui-uploader__file\" style=\"background-image:url( "+sourceLink+")\"></li>";
+        }else{
+            tmp = "<li id='ok_"+id+"'  class=\"weui-uploader__file\" style=\"background-image:url( ${assetPath(src: 'pic_160.png')})\"></li>";
+        }
         var list = $('#uploaderFiles');
         list.append(tmp);
     }
@@ -166,12 +171,9 @@
                     var sourceLink = "http://"+domain +"/"+ res.key; //获取上传成功后的文件的Url
                     var a='<a href="'+sourceLink+'" target="_blank">'+sourceLink+'</a>';
                     $.alert("自定义的消息内容"+a);
-                    // if(checkEnd(res.key,".jpg")||checkEnd(res.key,".png")||checkEnd(res.key,".gif")||checkEnd(res.key,".jpeg")){
-                    //     addHTML("<img src='"+sourceLink+"' width='400'/>")
-                    // }
                     // addHTML(a)
                     process(file.id,100)
-                    okFile(file.id)
+                    okFile(file.id,sourceLink)
                 },
                 'Error': function(up, err, errTip) {
                     //上传出错时，处理相关的事情
