@@ -172,7 +172,7 @@
                     var res = $.parseJSON(info.response);
                     var sourceLink = "http://"+domain +"/"+ res.key; //获取上传成功后的文件的Url
                     var a='<a href="'+sourceLink+'" target="_blank">'+sourceLink+'</a>';
-                    $.alert("自定义的消息内容"+a);
+                    // $.alert("自定义的消息内容"+a);
                     // addHTML(a)
                     process(file.id,100)
                     okFile(file.id,sourceLink)
